@@ -207,23 +207,30 @@ body {
     margin-top: 20px;
   }
 
-  .App-header {
-    padding-right: 0;
+  .App-header .title {
+    position: static;
+    left: auto;
   }
 
   .game-container {
     width: 100%;
   }
 
+  .board {
+    grid-gap: 3px;
+    max-width: 100%;
+  }
+
   .board-tile {
-    width: 45px;
-    height: 45px;
-    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
   }
 
   .keyboard .btn {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-    min-width: 38px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    min-width: 30px;
+    margin: 2px;
   }
 }

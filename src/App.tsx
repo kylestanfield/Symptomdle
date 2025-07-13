@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { GearFill, BarChartFill } from 'react-bootstrap-icons';
 import './App.css';
 import GameBoard from './GameBoard';
@@ -141,6 +141,20 @@ const App: React.FC = () => {
     };
   }, [handleChar, handleDelete, handleEnter]);
 
+  const textInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!isGameOver && textInputRef.current) {
+      textInputRef.current.focus();
+    }
+  }, [isGameOver]);
+
+  const handleGameContainerClick = () => {
+    if (!isGameOver && textInputRef.current) {
+      textInputRef.current.focus();
+    }
+  };
+
   return (
     <div className="App">
       {toastMessage && <Toast message={toastMessage} onClose={() => setToastMessage('')} />}
@@ -160,9 +174,30 @@ const App: React.FC = () => {
       </header>
 
       <div className="main-content">
-        <div className="game-container">
+        <div className="game-container" onClick={handleGameContainerClick}>
           {solution.name && <GameBoard solution={solution.name} guesses={guesses} currentGuess={currentGuess} isHardMode={isHardMode} />}
           <Keyboard onChar={handleChar} onDelete={handleDelete} onEnter={handleEnter} isGameOver={isGameOver} />
+          <input
+            ref={textInputRef}
+            type="text"
+            style={{
+              position: 'absolute',
+              opacity: 0,
+              pointerEvents: 'none',
+              width: '1px',
+              height: '1px',
+              top: '-1000px',
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleEnter();
+              } else if (e.key === 'Backspace') {
+                handleDelete();
+              } else if (e.key.length === 1 && e.key.match(/[a-z]/i)) {
+                handleChar(e.key.toUpperCase());
+              }
+            }}
+          />
         </div>
         <div className="symptoms-container">
           <h2>Symptoms</h2>

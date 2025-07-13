@@ -1,0 +1,213 @@
+:root {
+  --background-color: #121213;
+  --tile-border-color: #3A3A3C;
+  --text-color: #FFFFFF;
+  --correct-color: #538D4E;
+  --present-color: #B59F3B;
+  --absent-color: #3A3A3C;
+  --keyboard-bg: #818384;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--tile-border-color);
+  width: 100%;
+}
+
+.App-header .title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  left: -195px;
+}
+
+.header-buttons {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.header-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-grow: 1;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+}
+
+.board {
+  display: grid;
+  grid-gap: 5px;
+  margin-bottom: 30px;
+}
+
+.board-tile {
+  border: 2px solid var(--tile-border-color);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+}
+
+.board-tile.correct {
+  background-color: var(--correct-color);
+  border-color: var(--correct-color);
+}
+
+.board-tile.present {
+  background-color: var(--present-color);
+  border-color: var(--present-color);
+}
+
+.board-tile.absent {
+  background-color: var(--absent-color);
+  border-color: var(--absent-color);
+}
+
+.keyboard {
+  margin-top: 20px;
+}
+
+.keyboard .btn {
+  background-color: var(--keyboard-bg);
+  border: none;
+  font-weight: 600;
+  margin: 3px;
+  padding: 10px 16px;
+  font-size: 1.1rem;
+  min-width: 48px;
+}
+
+.symptoms-container {
+  padding: 20px;
+  background-color: #1A1A1B;
+  border-radius: 8px;
+  margin-top: 0;
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.symptoms-container h2 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--tile-border-color);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.symptoms-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.symptoms-list li {
+  margin-bottom: 10px;
+  background-color: #272729;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.modal-content {
+  background-color: #272729;
+  color: var(--text-color);
+}
+
+.modal-header {
+  border-bottom-color: var(--tile-border-color);
+}
+
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  text-align: center;
+}
+
+.stat-item .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.stat-item .stat-label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .symptoms-container {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+  }
+
+  .App-header {
+    padding-right: 0;
+  }
+}

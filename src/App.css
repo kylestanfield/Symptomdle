@@ -207,9 +207,21 @@ body {
     margin-top: 20px;
   }
 
+  .App-header {
+    justify-content: space-between; /* Distribute items with space between them */
+    padding: 10px 20px; /* Add some horizontal padding */
+  }
+
   .App-header .title {
     position: static; /* Remove fixed positioning for mobile */
     left: auto; /* Reset left property */
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .header-buttons {
+    position: static; /* Remove absolute positioning */
+    right: auto; /* Reset right property */
+    gap: 10px; /* Adjust gap between buttons */
   }
 
   .game-container {

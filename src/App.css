@@ -71,7 +71,7 @@ body {
 
 .main-content {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   gap: 2.5rem; /* 40px */
@@ -85,7 +85,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
+  flex-grow: 1;
+  min-width: 300px;
 }
 
 .board {

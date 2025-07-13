@@ -210,4 +210,20 @@ body {
   .App-header {
     padding-right: 0;
   }
+
+  .game-container {
+    width: 100%;
+  }
+
+  .board-tile {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+  }
+
+  .keyboard .btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    min-width: 38px;
+  }
 }

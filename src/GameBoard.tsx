@@ -39,7 +39,7 @@ const GameBoard: React.FC<GameBoardProps> = ({ solution, guesses, currentGuess, 
   const totalCols = solution.length;
 
   return (
-    <div className="board" style={{ gridTemplateColumns: `repeat(${totalCols}, 1fr)`, '--word-length': totalCols } as React.CSSProperties}>
+    <div className="board" style={{ '--word-length': totalCols } as React.CSSProperties}>
       {Array.from({ length: totalRows * totalCols }).map((_, i) => {
         const rowIndex = Math.floor(i / totalCols);
         const colIndex = i % totalCols;

@@ -90,8 +90,8 @@ body {
   display: grid;
   grid-gap: 5px;
   margin-bottom: 30px;
-  /* Desktop: Fixed size tiles, flexible columns */
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-columns: repeat(var(--word-length, 5), 60px);
+  justify-content: center;
 }
 
 .board-tile {
@@ -234,16 +234,16 @@ body {
   }
 
   .board {
-    grid-gap: 2px; /* Reduce gap between tiles */
-    max-width: 100%;
-    width: fit-content; /* Allow board to shrink to content */
-    margin-left: auto; /* Center the board */
-    margin-right: auto; /* Center the board */
+    grid-gap: 5px;
+    grid-template-columns: repeat(var(--word-length), minmax(0, 1fr));
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .board-tile {
-    width: 100%; /* Take full width of grid column */
+    width: 100%;
     padding-bottom: 100%; /* Maintain aspect ratio */
-    font-size: clamp(0.8rem, 4vw, 1.5rem); /* Scale font size */
+    font-size: clamp(1rem, 5vw, 2rem);
   }
 }

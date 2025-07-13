@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Symptomdle",
+  "name": "Symptomdle: The Disease Guessing Game",
   "icons": [
     {
       "src": "favicon.ico",

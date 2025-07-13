@@ -6,6 +6,9 @@
   --present-color: #B59F3B;
   --absent-color: #3A3A3C;
   --keyboard-bg: #818384;
+
+  /* Responsive font sizing */
+  font-size: 16px; /* Base font size */
 }
 
 body {
@@ -28,17 +31,17 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  max-width: 1100px;
+  max-width: 68.75rem; /* 1100px */
   margin: 0 auto;
-  padding: 10px;
+  padding: 0.625rem; /* 10px */
+  box-sizing: border-box;
 }
 
 .App-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
-  padding: 10px;
+  padding: 0.625rem; /* 10px */
   box-sizing: border-box;
   border-bottom: 1px solid var(--tile-border-color);
   width: 100%;
@@ -48,15 +51,14 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
-  position: relative;
-  left: -195px;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .header-buttons {
-  position: absolute;
-  right: 20px;
   display: flex;
-  gap: 15px;
+  gap: 1rem; /* 16px */
+  margin-left: 1rem;
 }
 
 .header-btn {
@@ -72,10 +74,10 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
+  gap: 2.5rem; /* 40px */
   flex-grow: 1;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 1.25rem; /* 20px */
 }
 
 .game-container {
@@ -83,21 +85,21 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: auto;
+  width: 100%;
 }
 
 .board {
   display: grid;
-  grid-gap: 5px;
-  margin-bottom: 30px;
-  grid-template-columns: repeat(var(--word-length, 5), 60px);
+  grid-gap: 0.3125rem; /* 5px */
+  margin-bottom: 1.875rem; /* 30px */
+  grid-template-columns: repeat(var(--word-length, 5), 3.75rem); /* 60px */
   justify-content: center;
 }
 
 .board-tile {
   border: 2px solid var(--tile-border-color);
-  width: 60px;
-  height: 60px;
+  width: 3.75rem; /* 60px */
+  height: 3.75rem; /* 60px */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,7 +107,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   transition: transform 0.2s;
-  position: relative; /* For centering text within aspect ratio */
+  position: relative;
 }
 
 .board-tile span {
@@ -130,7 +132,6 @@ body {
   border-color: var(--absent-color);
 }
 
-/* Hide the on-screen keyboard */
 .keyboard {
   display: none;
 }
@@ -140,19 +141,20 @@ body {
 }
 
 .symptoms-container {
-  padding: 20px;
+  padding: 1.25rem; /* 20px */
   background-color: #1A1A1B;
-  border-radius: 8px;
+  border-radius: 0.5rem; /* 8px */
   margin-top: 0;
-  width: 350px;
+  width: 22rem; /* 352px */
   flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .symptoms-container h2 {
   margin-top: 0;
   border-bottom: 1px solid var(--tile-border-color);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 0.625rem; /* 10px */
+  margin-bottom: 0.625rem; /* 10px */
 }
 
 .symptoms-list {
@@ -162,10 +164,10 @@ body {
 }
 
 .symptoms-list li {
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem; /* 10px */
   background-color: #272729;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 0.625rem; /* 10px */
+  border-radius: 0.25rem; /* 4px */
 }
 
 .modal-content {
@@ -184,7 +186,7 @@ body {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 1rem; /* 16px */
   text-align: center;
 }
 
@@ -198,55 +200,58 @@ body {
   color: #ccc;
 }
 
-
+/* Mobile-first responsive design */
 @media (max-width: 900px) {
   .App {
-    padding: 0 5px;
+    padding: 0;
+    margin: 0 1rem;
   }
 
   .main-content {
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    align-items: stretch;
+    gap: 1.25rem; /* 20px */
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .symptoms-container {
     width: 100%;
-    max-width: 500px;
-    margin-top: 20px;
+    max-width: none;
+    margin-top: 0;
   }
 
   .App-header {
-    justify-content: space-between; /* Distribute items with space between them */
-    padding: 10px 20px; /* Add some horizontal padding */
+    padding: 0.625rem 1.25rem; /* 10px 20px */
   }
 
   .App-header .title {
-    position: static; /* Remove fixed positioning for mobile */
-    left: auto; /* Reset left property */
-    font-size: 2rem; /* Adjust font size for smaller screens */
+    font-size: 2rem;
+    text-align: left;
   }
 
   .header-buttons {
-    position: static; /* Remove absolute positioning */
-    right: auto; /* Reset right property */
-    gap: 15px; /* Adjust gap between buttons */
+    gap: 1rem; /* 15px -> 16px */
   }
 
   .game-container {
     width: 100%;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .board {
-    grid-gap: 3px;
+    grid-gap: 0.3rem;
     grid-template-columns: repeat(var(--word-length), minmax(0, 1fr));
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .board-tile {
     width: 100%;
+    height: auto;
     padding-bottom: 100%; /* Maintain aspect ratio */
     font-size: clamp(1rem, 5vw, 2rem);
+    border-width: 2px;
   }
 }

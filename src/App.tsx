@@ -124,22 +124,7 @@ const App: React.FC = () => {
     setCurrentGuess('');
   }, [currentGuess, guesses, solution, updateStats, isGameOver]);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Enter') {
-        handleEnter();
-      } else if (event.key === 'Backspace') {
-        handleDelete();
-      } else if (event.key.length === 1 && event.key.match(/[a-z]/i)) {
-        handleChar(event.key.toUpperCase());
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleChar, handleDelete, handleEnter]);
+  
 
   const textInputRef = useRef<HTMLInputElement>(null);
 

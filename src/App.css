@@ -208,8 +208,8 @@ body {
   }
 
   .App-header .title {
-    position: static;
-    left: auto;
+    position: static; /* Remove fixed positioning for mobile */
+    left: auto; /* Reset left property */
   }
 
   .game-container {
@@ -217,20 +217,23 @@ body {
   }
 
   .board {
-    grid-gap: 3px;
+    grid-gap: 2px; /* Reduce gap between tiles */
     max-width: 100%;
+    width: fit-content; /* Allow board to shrink to content */
+    margin-left: auto; /* Center the board */
+    margin-right: auto; /* Center the board */
   }
 
   .board-tile {
-    width: 40px;
-    height: 40px;
-    font-size: 1.3rem;
+    width: 35px; /* Smaller tile size */
+    height: 35px; /* Smaller tile size */
+    font-size: 1.2rem; /* Smaller font size */
   }
 
   .keyboard .btn {
-    padding: 6px 10px;
-    font-size: 0.8rem;
-    min-width: 30px;
-    margin: 2px;
+    padding: 5px 8px; /* Smaller padding */
+    font-size: 0.7rem; /* Smaller font size */
+    min-width: 28px; /* Smaller min-width */
+    margin: 1px; /* Smaller margin */
   }
 }

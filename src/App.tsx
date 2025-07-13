@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { GearFill, BarChartFill } from 'react-bootstrap-icons';
 import './App.css';
 import GameBoard from './GameBoard';
-import Keyboard from './Keyboard';
 import Toast from './Toast';
 import SettingsModal from './SettingsModal';
 import StatsModal from './StatsModal';
@@ -161,7 +160,6 @@ const App: React.FC = () => {
       <div className="main-content">
         <div className="game-container" onClick={handleGameContainerClick}>
           {solution.name && <GameBoard solution={solution.name} guesses={guesses} currentGuess={currentGuess} isHardMode={isHardMode} />}
-          <Keyboard onChar={handleChar} onDelete={handleDelete} onEnter={handleEnter} isGameOver={isGameOver} />
           <input
             ref={textInputRef}
             type="text"

@@ -122,7 +122,7 @@ const App: React.FC = () => {
       }
     }
     setCurrentGuess('');
-  }, [currentGuess, guesses, revealedSymptoms, solution, updateStats, isGameOver]);
+  }, [currentGuess, guesses, solution, updateStats, isGameOver]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

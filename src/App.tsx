@@ -37,7 +37,8 @@ const App: React.FC = () => {
   });
 
   useEffect(() => {
-    const today = new Date();
+    const todayString = new Date().toLocaleDateString('en-US', { timeZone: 'America/Los_Angeles' });
+    const today = new Date(todayString);
     const dayOfYear = Math.floor((today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / (1000 * 60 * 60 * 24));
     const newSolution = DISEASES[dayOfYear % DISEASES.length];
 
@@ -191,6 +192,9 @@ const App: React.FC = () => {
           </ul>
         </div>
       </div>
+      <footer className="App-footer">
+        <p>A game by Cathy Huang and Kyle Stanfield</p>
+      </footer>
     </div>
   );
 };

@@ -259,3 +259,10 @@ body {
     border-width: 2px;
   }
 }
+
+.App-footer {
+  margin-top: auto;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: #888;
+}
